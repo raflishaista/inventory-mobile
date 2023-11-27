@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/screens/list_product.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:inventory/models/product.dart';
+import 'package:inventory/widgets/left_drawer.dart';
+import 'package:inventory/screens/shoplist_form.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -8,7 +12,7 @@ class DetailPage extends StatefulWidget {
   _ProductPageState createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ProductPageState extends State<DetailPage> {
   Future<List<Product>> fetchProduct() async {
     // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
     var url = Uri.parse(
@@ -84,24 +88,7 @@ class _ProductPageState extends State<ProductPage> {
                 }
               }
             })
-    Align(
-    alignment: Alignment.bottomCenter,
-    child: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: ElevatedButton(
-    style: ButtonStyle(
-    backgroundColor:
-    MaterialStateProperty.all(Colors.indigo),
-    ),
-    onPressed: () {
-    Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(builder: (context) => MyHomePage()),
-    )
-    }
-    )
-    )
-
+    
 
     );
   }
