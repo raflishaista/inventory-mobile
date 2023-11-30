@@ -68,8 +68,7 @@ class _ProductPageState extends State<ProductPage> {
                             padding: const EdgeInsets.all(20.0),
                             child: Column(
                               children: [
-                                Container(
-                                  child: TextButton(
+                                TextButton(
                                     style: TextButton.styleFrom(
                                         backgroundColor: Color(0xffF18265)),
                                     onPressed: () {
@@ -77,7 +76,7 @@ class _ProductPageState extends State<ProductPage> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                DetailPage(),
+                                                DetailPage(cardname: snapshot.data![index].fields.cardname ,price: snapshot.data![index].fields.price ,source:snapshot.data![index].fields.source ),
                                           ));
                                     },
                                     child: const Text(
@@ -87,9 +86,8 @@ class _ProductPageState extends State<ProductPage> {
                                       ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  child: Column(
+                                
+                                Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -108,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
                                       Text(
                                           "${snapshot.data![index].fields.source}")
                                     ],
-                                  ),
+                              
                                 ),
                               ],
                             ),
